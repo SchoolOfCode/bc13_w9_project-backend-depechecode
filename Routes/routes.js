@@ -4,7 +4,7 @@ const subjectsRouter = express.Router();
 // import functions from models/models.js
 // create route handler get subject by name
 
-subjectsRouter.get("/", async function (req, res){
+subjectsRouter.get("/subject", async function (req, res){
     console.log("anything")
     let subject = req.params.subject
     res.send(await getSubjectByName(subject))

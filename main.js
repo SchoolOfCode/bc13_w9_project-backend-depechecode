@@ -7,6 +7,6 @@ main.use(express.static("public"));
 main.use(express.json());
 main.use("/api/subjects", router)
 
-app.listen(PORT, () => {
+main.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
