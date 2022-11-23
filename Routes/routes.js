@@ -1,15 +1,16 @@
-const express = require("express");
+
+import express from "express";
 const subjectsRouter = express.Router();
 // Write your router code here!
 // import functions from models/models.js
 // create route handler get subject by name
 
-const {
+import {
     getAllSubjects,
     getSubjectByName,
-    createSubject,
-    updateSubjectByID,
-  } = require("../models/models.js")
+    // createSubject,
+    // updateSubjectByID,
+  } from "../models/models.js"
   
 //   subjectsRouter.get("/subject", async function (req, res){
 //     console.log("anything")
@@ -44,4 +45,4 @@ subjectsRouter.patch("/:id", async function (req, res) {
 
    
 
-module.exports = subjectsRouter;
+export default subjectsRouter;
