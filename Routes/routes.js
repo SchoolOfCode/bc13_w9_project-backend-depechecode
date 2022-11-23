@@ -18,10 +18,13 @@ import {
 //    });
 
 subjectsRouter.get("/subject", async function (req, res){
-    console.log("anything")
-    let searchTerm = req.query.search
-    console.log(searchTerm)
-    res.send(await getSubjectByName(searchTerm))
+    // let searchTerm = req.query.search
+    // res.send(await getSubjectByName(searchTerm))
+    const searchedSubject = await getSubjectByName(req.query.search)
+    return res.status(200).json({
+        success: true,
+        payload: searchedSubject
+      });
    });
 
 // create route handler for recipesRouter.post(req, res)
