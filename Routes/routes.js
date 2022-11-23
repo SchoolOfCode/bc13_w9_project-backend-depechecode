@@ -11,14 +11,15 @@ const {
     updateSubjectByID,
   } = require("../models/models.js")
   
-  subjectsRouter.get("/subject", async function (req, res){
-    console.log("anything")
-    res.send(await getAllSubjects() )
-   });
+//   subjectsRouter.get("/subject", async function (req, res){
+//     console.log("anything")
+//     res.send(await getAllSubjects() )
+//    });
 
 subjectsRouter.get("/subject", async function (req, res){
     console.log("anything")
-    let searchTerm = req.query.subject
+    let searchTerm = req.query.search
+    console.log(searchTerm)
     res.send(await getSubjectByName(searchTerm))
    });
 

@@ -1,12 +1,13 @@
 const { query } = require("../db");
 
-// async function getSubjectByName (searchTerm) {
-//     const result = await query(`SELECT * FROM SubjectResources JOIN Subject ON Subject.id = SubjectResources.subject_id WHERE subject_name ILIKE $1;,
-//     ["%" + searchTerm + "%"];`)
-//     let searchBySubjectName = result.rows;
-//     return searchBySubjectName
+async function getSubjectByName (searchTerm) {
+    const result = await query(`SELECT * FROM SubjectResources JOIN Subject ON Subject.id = SubjectResources.subject_id WHERE subject_name ILIKE $1;`,
+    ["%" + searchTerm + "%"]);
+    console.log(result,"this is the result")
+    let searchBySubjectName = result.rows;
+    return searchBySubjectName
 
-// }
+}
 async function getAllSubjects(){
     const result = await query('SELECT * FROM SubjectResources')
     let allSubjects = result.rows;
@@ -32,7 +33,10 @@ async function getAllSubjects(){
 
 module.exports = {
     getAllSubjects,
-    // getSubjectByName,
+    getSubjectByName,
     // createSubject,
     // updateSubjectByID
 };
+
+`SELECT * FROM SubjectResources JOIN Subject ON Subject.id = SubjectResources.subject_id WHERE subject_name ILIKE $1;,
+    ["%" + searchTerm + "%"];`
