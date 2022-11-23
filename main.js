@@ -1,12 +1,17 @@
-const express = require("express");
-const main = express();
-const PORT = 3000;
-const router = require("./Routes/routes")
 
+import express from "express";
+const main = express()
+import cors from "cors";
+const PORT = 3000;
+import router from "./Routes/routes.js"
+
+main.use(cors())
 main.use(express.static("public"));
 main.use(express.json());
-main.use("/api/subjects", router)
+main.use("/api/v1", router)
 
-app.listen(PORT, () => {
+
+
+main.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
