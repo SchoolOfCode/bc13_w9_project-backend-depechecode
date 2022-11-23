@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "dev": "nodemon main.js"
+    "start": "node -r dotenv/config main.js",
+    "dev": "nodemon -r dotenv/config main.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

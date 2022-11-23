@@ -4,10 +4,22 @@ const subjectsRouter = express.Router();
 // import functions from models/models.js
 // create route handler get subject by name
 
+const {
+    getAllSubjects,
+    getSubjectByName,
+    createSubject,
+    updateSubjectByID,
+  } = require("../models/models.js")
+  
+  subjectsRouter.get("/subject", async function (req, res){
+    console.log("anything")
+    res.send(await getAllSubjects() )
+   });
+
 subjectsRouter.get("/subject", async function (req, res){
     console.log("anything")
-    let subject = req.params.subject
-    res.send(await getSubjectByName(subject))
+    let searchTerm = req.query.subject
+    res.send(await getSubjectByName(searchTerm))
    });
 
 // create route handler for recipesRouter.post(req, res)
@@ -30,10 +42,5 @@ subjectsRouter.patch("/:id", async function (req, res) {
 });
 
    
-const {
-    getSubjectByName,
-    createSubject,
-    updateSubjectByID,
-  } = require("../models/models.js")
 
 module.exports = subjectsRouter;

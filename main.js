@@ -5,7 +5,7 @@ const router = require("./Routes/routes")
 
 main.use(express.static("public"));
 main.use(express.json());
-main.use("/api/subjects", router)
+main.use("/api", router)
 
 main.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
