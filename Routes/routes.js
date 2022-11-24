@@ -1,9 +1,6 @@
 
 import express from "express";
 const subjectsRouter = express.Router();
-// Write your router code here!
-// import functions from models/models.js
-// create route handler get subject by name
 
 import {
     getAllSubjects,
@@ -12,36 +9,33 @@ import {
     // updateSubjectByID,
   } from "../models/models.js"
   
-//   subjectsRouter.get("/subject", async function (req, res){
-//     console.log("anything")
-//     res.send(await getAllSubjects() )
-//    });
-
-subjectsRouter.get("/subject", async function (req, res){
-    
-    let searchTerm = req.query.search
-    
+  
+  subjectsRouter.get("/subject", async(req, res)=>{
+    const searchTerm = req.query.search
     res.send(await getSubjectByName(searchTerm))
-   });
+  });
+  
+  //   subjectsRouter.get("/subject", async function (req, res){
+  //     res.send(await getAllSubjects() )
+  //    });
 
-// create route handler for recipesRouter.post(req, res)
-subjectsRouter.post("/", async function (req, res) {
-    let subject = req.body.subject ;
-    let description = req.body.description;
-    let tech_links = req.body.tech_links;
-    let comments = req.body.comments;
-    res.json(await createSubject(subject, description, tech_links, comments)); 
-});
+// subjectsRouter.post("/", async function (req, res) {
+//     let subject = req.body.subject ;
+//     let description = req.body.description;
+//     let tech_links = req.body.tech_links;
+//     let comments = req.body.comments;
+//     res.json(await createSubject(subject, description, tech_links, comments)); 
+// });
 
-subjectsRouter.patch("/:id", async function (req, res) {
-    // get the id of the req
-    const id = req.params.id;
-    let subject = req.body.subject ;
-    let description = req.body.description;
-    let tech_links = req.body.tech_links;
-    let comments = req.body.comments;
-    res.json(await updateSubjectByID(id, subject, description, tech_links, comments));
-});
+// subjectsRouter.patch("/:id", async function (req, res) {
+//     // get the id of the req
+//     const id = req.params.id;
+//     let subject = req.body.subject ;
+//     let description = req.body.description;
+//     let tech_links = req.body.tech_links;
+//     let comments = req.body.comments;
+//     res.json(await updateSubjectByID(id, subject, description, tech_links, comments));
+// });
 
    
 
