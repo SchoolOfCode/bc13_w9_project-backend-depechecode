@@ -18,9 +18,9 @@ import {
 //    });
 
 subjectsRouter.get("/subject", async function (req, res){
-    console.log("anything")
+    
     let searchTerm = req.query.search
-    console.log(searchTerm)
+    
     res.send(await getSubjectByName(searchTerm))
    });
 

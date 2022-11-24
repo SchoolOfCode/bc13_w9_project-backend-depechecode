@@ -3,7 +3,7 @@ import  query  from "../db/index.js";
 export async function getSubjectByName (searchTerm) {
     const result = await query(`SELECT * FROM SubjectResources JOIN Subject ON Subject.id = SubjectResources.subject_id WHERE subject_name ILIKE $1;`,
     ["%" + searchTerm + "%"]);
-    // console.log(result,"this is the result")
+
     let searchBySubjectName = result.rows;
     return searchBySubjectName
 
