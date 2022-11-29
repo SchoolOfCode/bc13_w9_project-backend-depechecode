@@ -11,8 +11,9 @@ import {
   
   
   subjectsRouter.get("/subject", async(req, res)=>{
-    const searchTerm = req.query.search
-    res.send(await getSubjectByName(searchTerm))
+    const searchedSubject = await getSubjectByName(req.query.search)
+    res.status(200).json({success:true,payload:searchedSubject})
+
   });
   
   //   subjectsRouter.get("/subject", async function (req, res){
