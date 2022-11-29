@@ -17,4 +17,22 @@ describe(`should return the data for the subject called React`, () => {
     const response = await request(app).get("/api/v1/subject?search=React");
     expect(response.body).toStrictEqual({ success: true, payload: expect.any(Object)})
   });
+
+  it("should return the correct data", async () => {
+    const response = await request(app).get("/api/v1/subject?search=React");
+    const responsePayload = response.body.payload
+    for(let i = 0; i < responsePayload.length; i++) {
+      expect(responsePayload[i]).toStrictEqual({
+           "id": expect.any(Number),
+            "subject_id": expect.any(Number),
+            "resource_name": expect.any(String),
+            "type": expect.any(String),
+            "url": expect.any(String),
+            "subject_name":expect.any(String),
+            "definition": expect.any(String)
+      })
+    }
+  })
 });
+
+
