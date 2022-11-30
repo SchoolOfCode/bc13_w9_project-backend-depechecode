@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node -r dotenv/config ./Server/server.js",
     "dev": "nodemon -r dotenv/config ./Server/server.js",
-    "test": "node -r dotenv/config --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node -r dotenv/config --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "dependencies": {
     "better-docs": "^2.7.2",
